@@ -1,0 +1,8 @@
+li = [1,4,2,0]
+temp = li[0]
+for char in li:
+    if char < temp:
+        temp = char
+    else:
+        pass
+print("Smallest number is :", temp)
