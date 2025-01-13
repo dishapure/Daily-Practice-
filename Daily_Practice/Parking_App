@@ -1,0 +1,40 @@
+# This code manages the parking lot by
+# 1. adding new cars in the parking lot with a unique number
+# 2. Deleting those cars when they leave the parkinglot
+# 3. printing them in the order and making sure no more than 10 cars park
+
+
+import random
+
+class ParkingLot:
+    def __init__(self):
+        self.cars = {}
+        self.carCount = 0
+        print("Parking lot initialized")
+
+    def addCar(self):
+        if(self.carCount==10):
+            print("Parking lot is full")
+        else:
+            self.carCount += 1 
+            car_id = f"car{self.carCount}" 
+            self.cars[car_id] = random.randrange(1000, 9000) 
+            print(f"Added {car_id} with number {self.cars[car_id]}")
+    def delCar(self,carId):
+        try:
+            self.cars.pop(carId)
+            print(carId,"is exiting")
+        except:
+            print("Car not found")
+        
+        self.carCount-=1
+    def printCars(self):
+        print(self.cars)
+
+
+parking = ParkingLot()
+parking.addCar()
+parking.addCar()
+parking.delCar("car1")
+parking.delCar("car18")
+parking.printCars()
